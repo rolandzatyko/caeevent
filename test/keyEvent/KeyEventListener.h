@@ -1,17 +1,17 @@
 #pragma once
 
-namespace cae
-{
-  class KeyEventListener
-  {
-  public:
-    KeyEventListener(Event& iEventNum, Event& iEventStr);
+#include "../../src/Event.h"
+#include "NumberEventArgs.h"
+#include "StringEventArgs.h"
 
-    ~KeyEventListener() = default;
 
-  private:
-    void onNumber(const EventArgs& iArgs);
-
-    void onString(const EventArgs& iArgs);
-  };
+namespace cae {
+    class KeyEventListener {
+    private:
+        Event &iEventNum, &iEventStr;
+        static void onNumber(const NumberEventArgs &iArgs);
+        static void onString(const StringEventArgs &iArgs);
+    public:
+        KeyEventListener(Event& _iEventNum, Event& _iEventStr);
+    };
 }
